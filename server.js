@@ -27,6 +27,11 @@ const db = mysql.createConnection(
     console.log('Connected to the election database.')
   );
 
+  //runs query and executes callback with results
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+  console.log(rows);
+});
+
 ////handles unsupported user reqs must be below other req routes
 app.use((req, res) => {
     res.status(404).end();
